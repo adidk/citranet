@@ -12,7 +12,7 @@
             <div class="carousel-inner" role="listbox">
 
                 <!-- Slide 1 -->
-                <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
+                <div class="carousel-item active" style="background-image: url(assets/img/slide/1.png)">
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Sailor</span></h2>
@@ -60,7 +60,6 @@
     <section id="clients" class="clients ">
         <div class="">
             <div class="mt-3 ">
-
                 <div class=" ">
                     <h4 class="label-product text-center">PRODUK</h4>
                     <div class=" align-items-center justify-content-center" style="text-align: center;">
@@ -115,7 +114,7 @@
 
             <div class="row ">
 
-                <div class="col-lg-6 col-md-5 ml-4">
+                <div class="col-lg-5 col-md-5 ml-4">
                     <div class="box featured">
                         <h3>POPULAR POST</h3>
                         <div class="col-lg">
@@ -152,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 ml-3 col-md-6">
+                <div class="col-lg-5 ml-3 col-md-6">
                     <div class="box featured">
                         <h3>BERITA LAINNYA</h3>
                         <ul>
@@ -225,4 +224,26 @@
 
         </div>
     </section><!-- End Pricing Section -->
+    <div class="container">
+        <br>
+        <div class="col-sm-8">
+            <div id="carousel-berita" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                </ol>
+
+                <div class="carousel-inner" role="listbox">
+                </div>
+
+                <a class="left carousel-control" href="#carousel-berita" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-berita" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
 </main>
