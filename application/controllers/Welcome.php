@@ -77,7 +77,7 @@ class Welcome extends CI_Controller
 		$data['active'] = "";
 		$data['support'] = "";
 		$data['hubungi'] = "";
-		
+
 		$data['produk'] = "INTERNET SERVICES";
 		$data['produk2'] = "INFINITE LITE";
 		$data['produk1'] = "RESIDENTAL FIBER OPTIC";
@@ -99,7 +99,7 @@ class Welcome extends CI_Controller
 		$data['active'] = "";
 		$data['support'] = "";
 		$data['hubungi'] = "";
-		
+
 		$data['produk'] = "INTERNET SERVICES";
 		$data['produk2'] = "INFINITE HOME";
 		$data['produk1'] = "RESIDENTAL FIBER OPTIC";
@@ -121,7 +121,7 @@ class Welcome extends CI_Controller
 		$data['active'] = "";
 		$data['support'] = "";
 		$data['hubungi'] = "";
-		
+
 		$data['produk'] = "INTERNET SERVICES";
 		$data['produk2'] = "INFINITE COMBO";
 		$data['produk1'] = "RESIDENTAL FIBER OPTIC";
@@ -143,7 +143,7 @@ class Welcome extends CI_Controller
 		$data['active'] = "";
 		$data['support'] = "";
 		$data['hubungi'] = "";
-		
+
 		$data['produk'] = "INTERNET SERVICES";
 		$data['produk2'] = "INFINITE STREAM";
 		$data['produk1'] = "RESIDENTAL FIBER OPTIC";
@@ -165,7 +165,7 @@ class Welcome extends CI_Controller
 		$data['active'] = "";
 		$data['support'] = "";
 		$data['hubungi'] = "";
-		
+
 		$data['produk'] = "INTERNET SERVICES";
 		$data['produk2'] = "FAST";
 		$data['produk1'] = "CORPORATE";
@@ -187,7 +187,7 @@ class Welcome extends CI_Controller
 		$data['active'] = "";
 		$data['support'] = "";
 		$data['hubungi'] = "";
-		
+
 		$data['produk'] = "INTERNET SERVICES";
 		$data['produk2'] = "DECIDED INTERNET ACCESS";
 		$data['produk1'] = "CORPORATE";
@@ -292,7 +292,7 @@ class Welcome extends CI_Controller
 		$data['it'] = "active";
 		$data['support'] = "";
 		$data['hubungi'] = "";
-		
+
 		$data['produk1'] = "IT INFRASTRUCTURE";
 		$data['produk2'] = "IP PBX";
 		$data['gambar'] = "assets/img/soho/IP_PBX1.png";
@@ -429,6 +429,84 @@ class Welcome extends CI_Controller
 			}
 		}
 	}
+	public function ulasan()
+	{
+		$data['title'] = "Home";
+		$data['integrated'] = "";
+		$data['index1'] = "active";
+		$data['internet'] = "";
+		$data['integrated'] = "";
+		$data['it'] = "";
+		$data['support'] = "";
+		$data['hubungi'] = "";
+		$data['produk1'] = "SUPPORT";
+		$data['produk2'] = "KONFIRMASI PEMBAYARAN";
+
+		$this->form_validation->set_rules('nama', 'nama', 'required|trim');
+		// $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email]');
+		// $this->form_validation->set_rules('nomor', 'Nomor Telepon', 'required|trim');
+		// $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+		// $this->form_validation->set_rules('keluhan', 'Keluhan', 'required|trim|');
+
+		if ($this->form_validation->run() == false) {
+			$this->load->view('template/umum/header', $data);
+			$this->load->view('produk/ulasan', $data);
+			$this->load->view('template/umum/footer');
+		} else {
+			$nama  = $this->input->post('nama');
+			$email  = $this->input->post('email');
+			$ulasan  = $this->input->post('ulasan');
+
+			$config['upload_path'] = './assets/bukti/';
+			$config['allowed_types'] = 'jpg|png|jpeg|gif';
+			$config['file_name'] = $_FILES['foto']['name'];
+
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if (!empty($_FILES['foto']['name'])) {
+				if ($this->upload->do_upload('foto')) {
+					$foto = $this->upload->data();
+					$data = array(
+
+						'nama'          => htmlspecialchars($nama),
+						'email'         => htmlspecialchars($email),
+						'ulasan'       => $ulasan,
+						'gambar' => $foto['file_name'],
+						'dcreated 	'     =>  date('Y-m-d H:i:s', time())
+
+					);
+
+					$this->db->insert('ulasan', $data);
+					$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+					Terima Kasih Respons Anda Sudah terkirim  </div>');
+					redirect('welcome');
+				} else {
+				}
+			} else {
+				echo "Gambar tidak masuk";
+			}
+
+
+			// $data = [
+			// 'nama'          => htmlspecialchars($nama),
+			// 'email'         => htmlspecialchars($email),
+			// 'norekening'       => $norekening,
+			// 'idcustomer'     => $idcustomer,
+			// 'annorekening'     => $annorekening,
+			// 'nominal'     => $nominal,
+			// 'norekening'     => $norekening,
+			// 'layanan'     => $layanan,
+			// 'bank'     => $bank,
+			// ];
+			// 	$this->db->insert('pembayaran', $data);
+
+			// 	$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+			// Terima Kasih Respons Anda Sudah terkirim  </div>');
+
+			// redirect('welcome/konfirmasi');
+
+		}
+	}
 	public function hubungi()
 	{
 		$data['title'] = "";
@@ -478,13 +556,5 @@ class Welcome extends CI_Controller
 
 			redirect('welcome/hubungi');
 		}
-	}
-
-
-
-	public function cari()
-	{
-		$this->load->view('produk/cari');
-		# code...
 	}
 }

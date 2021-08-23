@@ -224,26 +224,102 @@
 
         </div>
     </section><!-- End Pricing Section -->
-    <div class="container">
-        <br>
-        <div class="col-sm-8">
-            <div id="carousel-berita" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                </ol>
+    <section id="team" class="team section-bg">
+        <div class="container">
 
-                <div class="carousel-inner" role="listbox">
+            <div class="section-title">
+                <p>APA KATA MEREKA TENTANG CITRANET</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="member d-flex align-items-start">
+                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Walter White</h4>
+                            <span>11 Agustus 2021</span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In culpa placeat dolores veritatis dolorem distinctio voluptate esse nulla, quas doloribus. Deleniti numquam, veritatis natus laboriosam suscipit quasi hic odit voluptas.</p>
+                            <div class="social">
+                                <a href=""><i class="ri-twitter-fill"></i></a>
+                                <a href=""><i class="ri-facebook-fill"></i></a>
+                                <a href=""><i class="ri-instagram-fill"></i></a>
+                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <a class="left carousel-control" href="#carousel-berita" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-berita" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="member d-flex align-items-start">
+                        <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Sarah Jhonson</h4>
+                            <span>1 Agustus 2021</span>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis ipsum placeat incidunt aut obcaecati inventore. Repellendus, dolorem quia! Sit ipsam omnis iusto odit tempora voluptas at molestiae magni ipsa nulla.</p>
+                            <div class="social">
+                                <a href=""><i class="ri-twitter-fill"></i></a>
+                                <a href=""><i class="ri-facebook-fill"></i></a>
+                                <a href=""><i class="ri-instagram-fill"></i></a>
+                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-4">
+                    <div class="member d-flex align-items-start">
+                        <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>William Anderson</h4>
+                            <span>8 juli 2020</span>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita fugiat nisi ipsa. Commodi obcaecati doloremque suscipit vero. Veritatis unde ipsa aspernatur, deserunt minima nostrum cumque praesentium ratione obcaecati, quo repellat.</p>
+                            <div class="social">
+                                <a href=""><i class="ri-twitter-fill"></i></a>
+                                <a href=""><i class="ri-facebook-fill"></i></a>
+                                <a href=""><i class="ri-instagram-fill"></i></a>
+                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-4">
+                    <div class="member d-flex align-items-start">
+                        <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>Amanda Jepson</h4>
+                            <span>8 februari 2020</span>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At voluptates deleniti qui? Odit totam repudiandae in aperiam! Aliquid aperiam voluptate, sit, et voluptatibus, ipsam dignissimos ab culpa perferendis pariatur ducimus.</p>
+                            <div class="social">
+                                <a href=""><i class="ri-twitter-fill"></i></a>
+                                <a href=""><i class="ri-facebook-fill"></i></a>
+                                <a href=""><i class="ri-instagram-fill"></i></a>
+                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <section id="pricing" class="pricing">
+                <div class="container" data-aos="fade-up">
+
+                    <div class="row">
+
+                        <div class="" style="text-align: center;">
+                            <p><b>
+                                   Tulis Ulasan Anda</b>
+                            </p>
+                            <a href="<?= base_url('welcome/ulasan'); ?>" class="btn-buy">Hubungi Kami</a>
+                        </div>
+                    </div>
+
+
+            </section>
+            <div>
             </div>
         </div>
-    </div>
+    </section><!-- End Team Section -->
 
 </main>

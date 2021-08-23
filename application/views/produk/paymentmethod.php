@@ -23,7 +23,7 @@
                                 <div class="col">
                                     <div class="col card mb-3" id="pricing">
                                         <div class="center m-3" style="text-align:center;">
-                                            <img id="show" src="<?= base_url() ?>/assets/img/clients/client-2.png" class="align-items-center justify-content-center" alt="gambar">
+                                            <img id="show" src="<?= base_url() ?>/assets/img/slide/Tunai.jpg" class="align-items-center justify-content-center" alt="gambar">
                                         </div>
                                         <div class="m-3">
                                             <div class="table-responsive">
