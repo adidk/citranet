@@ -20,6 +20,7 @@ class Welcome extends CI_Controller
 		$data['coverage'] = "";
 		$data['support'] = "";
 		$data['hubungi'] = "";
+		$data['ulasan'] = $this->db->get('ulasan');
 		$this->load->view('template/umum/header', $data);
 		$this->load->view('index', $data);
 		$this->load->view('template/umum/footer');
@@ -205,10 +206,12 @@ class Welcome extends CI_Controller
 	public function pop()
 	{
 		$data['integrated'] = "";
-		$data['index1'] = "";
+		$data['index1'] = "active";
 		$data['internet'] = "";
 		$data['it'] = "";
 		$data['active'] = "";
+		$data['support'] = "";
+		$data['hubungi'] = "";
 		$data['produk'] = "INTERNET SERVICES";
 		$data['produk2'] = "DECIDED INTERNET ACCESS";
 		$data['produk1'] = "CORPORATE";
@@ -456,8 +459,9 @@ class Welcome extends CI_Controller
 			$nama  = $this->input->post('nama');
 			$email  = $this->input->post('email');
 			$ulasan  = $this->input->post('ulasan');
+			$rating  = $this->input->post('rating');
 
-			$config['upload_path'] = './assets/bukti/';
+			$config['upload_path'] = './assets/img/ulasan';
 			$config['allowed_types'] = 'jpg|png|jpeg|gif';
 			$config['file_name'] = $_FILES['foto']['name'];
 
@@ -470,8 +474,9 @@ class Welcome extends CI_Controller
 
 						'nama'          => htmlspecialchars($nama),
 						'email'         => htmlspecialchars($email),
-						'ulasan'       => $ulasan,
-						'gambar' => $foto['file_name'],
+						'ulasan'       	=> $ulasan,
+						'rating'       	=> $rating,
+						'gambar'		=> $foto['file_name'],
 						'dcreated 	'     =>  date('Y-m-d H:i:s', time())
 
 					);

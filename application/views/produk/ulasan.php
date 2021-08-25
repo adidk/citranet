@@ -19,18 +19,32 @@
             <div class="row">
 
                 <div class="row">
-                    <div class="col-lg-7  mt-5 mt-lg-0">
+                    <div class="col-lg-7  mt-5 mt-lg-0" id="example">
 
                         <?= $this->session->flashdata('message') ?>
                         <?= form_open_multipart(''); ?>
                         <div class="col-md form-group">
+                            <label for="">Nama</label>
                             <input type="text" name="nama" class="form-control" id="Nama" placeholder="nama" required>
                         </div>
                         <div class="col-md  mt-3 ">
+                            <label for="">Email</label>
                             <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                         </div>
                         <div class="form-group mt-3">
-                            <textarea  class="form-control" name="ulasan" id="ulasan" placeholder="Tulis ulasan anda" required>
+                            <label for="">Rating Kami</label>
+                            <select class="form-control" id="rating" name="rating">
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                                
+                            </select>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="">Ketik Ulasan Anda</label>
+                            <textarea class="form-control" name="ulasan" id="ulasan" placeholder="Tulis ulasan anda" required>
                             </textarea>
                         </div>
                         <div class="form-group mt-3">

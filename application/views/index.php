@@ -15,9 +15,6 @@
                 <div class="carousel-item active" style="background-image: url(assets/img/slide/1.png)">
                     <div class="carousel-container">
                         <div class="container">
-                            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Sailor</span></h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -26,9 +23,6 @@
                 <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
                     <div class="carousel-container">
                         <div class="container">
-                            <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -37,9 +31,6 @@
                 <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)">
                     <div class="carousel-container">
                         <div class="container">
-                            <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -114,7 +105,7 @@
 
             <div class="row ">
 
-                <div class="col-lg-5 col-md-5 ml-4">
+                <div class="col-lg-6 col-md-5 ml-4">
                     <div class="box featured">
                         <h3>POPULAR POST</h3>
                         <div class="col-lg">
@@ -123,7 +114,7 @@
                                 <img src="https://www.citra.net.id/cni-content/uploads/modules/posts/thumbs/20210802104451.png" style="text-align:center;" width="100%" height="auto" class="img-responsive">
                             </div>
                             <a href="<?= base_url('welcome/pop') ?>">
-                                <h2 class="text-align-center">TERIMA KASIH SOBAT INTERNET!</h2>
+                                <p class="text-align-center mt-3">TERIMA KASIH SOBAT INTERNET!</p>
                             </a>
                             <div class="entry-content" style="text-align: justify;"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt fugit eveniet, quia odit explicabo alias reprehenderit. Quas, iusto? Pariatur aut nobis distinctio? Quam veniam maiores et vero totam deserunt itaque!
                                 <br>
@@ -146,9 +137,7 @@
 
                             </div>
                         </div>
-                        <div class="btn-wrap">
-                            <a href="#" class="btn-buy">Buy Now</a>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-5 ml-3 col-md-6">
@@ -230,96 +219,72 @@
             <div class="section-title">
                 <p>APA KATA MEREKA TENTANG CITRANET</p>
             </div>
-
-            <div class="row">
-
-                <div class="col-lg-6">
-                    <div class="member d-flex align-items-start">
-                        <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>11 Agustus 2021</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In culpa placeat dolores veritatis dolorem distinctio voluptate esse nulla, quas doloribus. Deleniti numquam, veritatis natus laboriosam suscipit quasi hic odit voluptas.</p>
-                            <div class="social">
-                                <a href=""><i class="ri-twitter-fill"></i></a>
-                                <a href=""><i class="ri-facebook-fill"></i></a>
-                                <a href=""><i class="ri-instagram-fill"></i></a>
-                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mt-4 mt-lg-0">
-                    <div class="member d-flex align-items-start">
-                        <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>1 Agustus 2021</span>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis ipsum placeat incidunt aut obcaecati inventore. Repellendus, dolorem quia! Sit ipsam omnis iusto odit tempora voluptas at molestiae magni ipsa nulla.</p>
-                            <div class="social">
-                                <a href=""><i class="ri-twitter-fill"></i></a>
-                                <a href=""><i class="ri-facebook-fill"></i></a>
-                                <a href=""><i class="ri-instagram-fill"></i></a>
-                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mt-4">
-                    <div class="member d-flex align-items-start">
-                        <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>8 juli 2020</span>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita fugiat nisi ipsa. Commodi obcaecati doloremque suscipit vero. Veritatis unde ipsa aspernatur, deserunt minima nostrum cumque praesentium ratione obcaecati, quo repellat.</p>
-                            <div class="social">
-                                <a href=""><i class="ri-twitter-fill"></i></a>
-                                <a href=""><i class="ri-facebook-fill"></i></a>
-                                <a href=""><i class="ri-instagram-fill"></i></a>
-                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mt-4">
-                    <div class="member d-flex align-items-start">
-                        <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Amanda Jepson</h4>
-                            <span>8 februari 2020</span>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At voluptates deleniti qui? Odit totam repudiandae in aperiam! Aliquid aperiam voluptate, sit, et voluptatibus, ipsam dignissimos ab culpa perferendis pariatur ducimus.</p>
-                            <div class="social">
-                                <a href=""><i class="ri-twitter-fill"></i></a>
-                                <a href=""><i class="ri-facebook-fill"></i></a>
-                                <a href=""><i class="ri-instagram-fill"></i></a>
-                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <section id="pricing" class="pricing">
-                <div class="container" data-aos="fade-up">
-
-                    <div class="row">
-
-                        <div class="" style="text-align: center;">
-                            <p><b>
-                                   Tulis Ulasan Anda</b>
-                            </p>
-                            <a href="<?= base_url('welcome/ulasan'); ?>" class="btn-buy">Hubungi Kami</a>
-                        </div>
-                    </div>
-
-
-            </section>
             <div>
+
+                <div class="row">
+
+                    <?php foreach ($ulasan->result_array() as $a) { ?>
+                        <div class="col-lg-5 m-3">
+                            <div class="member d-flex align-items-start">
+
+                                <div class="pic"><img src="<?= base_url('assets/img/ulasan/') . $a['gambar'] ?>" class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <h4><?= $a['nama']; ?></h4>
+                                    <span><?= $a['email']; ?></span>
+                                    <p><?= $a['ulasan'] ?></p>
+                                    <div class="social">
+                                        <?php if ($a['rating'] == 1) : ?>
+                                            <a href=""><i class="ri-facebook-fill"></i></a>
+
+                                        <?php elseif ($a['rating'] == 2) : ?>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                        <?php elseif ($a['rating'] == 3) : ?>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                        <?php elseif ($a['rating'] ==4) : ?>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                        <?php elseif ($a['rating'] ==5) : ?>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                        <?php endif ?>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+
+
+
+
+                </div>
+                <section id="pricing" class="pricing">
+                    <div class="container" data-aos="fade-up">
+
+                        <div class="row">
+
+                            <div class="" style="text-align: center;">
+                                <p><b>
+                                        Tulis Ulasan Anda</b>
+                                </p>
+                                <a href="<?= base_url('welcome/ulasan'); ?>" class="btn-buy">Tulis</a>
+                            </div>
+                        </div>
+
+
+                </section>
+                <div>
+                </div>
             </div>
-        </div>
     </section><!-- End Team Section -->
 
 </main>

@@ -7,53 +7,53 @@
         <div class="col-lg">
             <?= form_open_multipart() ?>
             <div class="form-group row">
-                <label for="email" class="col-sm-2">NAMA</label>
+                <label for="email" class="col-sm-2">Nama</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email" name="email" value="<?= $bayar['name']; ?>" readonly>
+                    <input type="text" class="form-control" id="name" name="name" value="<?= $bayar['name']; ?>" readonly>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label">ALAMAT</label>
+                <label for="email" class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email" name="email" value="<?= $bayar['alamat']; ?>" readonly>
+                    <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $bayar['alamat']; ?>" readonly>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="name" class="col-sm-2 col-form-label">LAYANAN</label>
+                <label for="name" class="col-sm-2 col-form-label">Nomor Telepon</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" value="<?= $bayar['nomor'] ?>" readonly>
+                    <input type="text" class="form-control" id="nomor" name="nomor" value="<?= $bayar['nomor'] ?>" readonly>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="name" class="col-sm-2 col-form-label">bank</label>
+                <label for="name" class="col-sm-2 col-form-label">Request Kontak</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" value="<?= $bayar['kontak'] ?>" readonly>
+                    <input type="text" class="form-control" id="kontak" name="kontak" value="<?= $bayar['kontak'] ?>" readonly>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="name" class="col-sm-2 col-form-label">NOMOR REKENING</label>
+                <label for="name" class="col-sm-2 col-form-label">Respon Pelanggan</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" value="<?= $bayar['response'] ?>" readonly>
+                    <input type="text" class="form-control" id="response" name="response" value="<?= $bayar['response'] ?>" readonly>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="name" class="col-sm-2 col-form-label">STATUS</label>
+                <label for="name" class="col-sm-2 col-form-label">Status</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" value="<?= $bayar['status'] ?>" readonly>
+                    <input type="text" class="form-control" id="status" name="status" value="<?= $bayar['status'] ?>" readonly>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="name" class="col-sm-2 col-form-label">STATUS PEMBAYARAN</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" value="<?= $bayar['status'] ?>" readonly>
+
+            <? if ($bayar['status'] == 'sudah ditindak lanjuti') {
+                # code...
+            } ?>
+            <?php if ($bayar['status'] != 'sudah ditindak lanjuti') : ?>
+                <div class="col-lg">
+                    <div class="col-sm-10">
+                        <a href="<?= base_url('admin/tindakankeluhan/') . $bayar['id'] ?>" class="btn btn-danger mb-3">TINDAK KELUHAN</a>
+                    </div>
                 </div>
-            </div>
-           
-            <div class="col-lg">
-                <div class="col-sm-10">
-                    <a href="<?=base_url('admin/tindakankeluhan/'). $bayar['id']?>" class="btn btn-danger mb-3" >TINDAK KELUHAN</a>
-                </div>
-            </div>
+            <?php endif ?>
+
             </form>
         </div>
     </div>

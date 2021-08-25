@@ -23,9 +23,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('admin/daftar') ?>" class="nav-link <?=$daftar?>">
+                    <a href="<?= base_url('admin/daftarpelanggan') ?>" class="nav-link <?=$daftar?>">
                         <p>
-                            Daftarkan Pengguna
+                            Pelanggan
                         </p>
                     </a>
                 </li>

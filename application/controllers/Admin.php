@@ -191,13 +191,13 @@ class admin extends CI_Controller
         $user = $this->session->userdata();
         if ($user['role_id'] == 2) {
             $data = array(
-                'status'    => 1,
+                'status'    => 'Sudah ditindak lanjuti',
                 'responseby' => $user['name'],
                 'modified' => date('Y-m-d H:i:s', time())
             );
             $this->db->where('id', $a);
             $this->db->update('keluhan', $data);
-            redirect('admin/validasipembayaran');
+            redirect('admin/keluhan');
         } else (redirect('auth'));
     }
     public function detail($a)
@@ -223,17 +223,46 @@ class admin extends CI_Controller
     {
         $user = $this->session->userdata();
         if ($user['role_id'] == 2) {
+            $data = [
+
+                'status'    => 'aktif',
+                'masaaktif '     => date('Y-m-d H:i:s',  strtotime("+30 days"))
+            ];
             $this->db->where('idcustomer', $bayar);
             $this->db->update('pembayaran', array('status'    => 'terima'));
+
+            $this->db->where('id', $bayar);
+            $this->db->update('pelanggan', $data);
             redirect('admin/validasipembayaran');
+        } else (redirect('auth'));
+    }
+    public function aktivasi($pelanggan)
+    {
+        $user = $this->session->userdata();
+        if ($user['role_id'] == 2) {
+            
+            $data = [
+
+                'status'    => 'aktif',
+                'masaaktif '     => date('Y-m-d H:i:s',  strtotime("+30 days"))
+            ];
+
+            $this->db->where('id', $pelanggan);
+            $this->db->update('pelanggan', $data);
+            redirect('admin/daftarpelanggan');
         } else (redirect('auth'));
     }
     public function tolak($bayar)
     {
+        $data = [
+            'status'    => 'belum aktifasi',
+        ];
         $user = $this->session->userdata();
         if ($user['role_id'] == 2) {
             $this->db->where('idcustomer', $bayar);
             $this->db->update('pembayaran', array('status'    => 'tolak'));
+            $this->db->where('id', $bayar);
+            $this->db->update('pelanggan', $data);
             redirect('admin/validasipembayaran');
         } else (redirect('auth'));
     }
@@ -268,6 +297,7 @@ class admin extends CI_Controller
                     'email'         => htmlspecialchars($email),
                     'alamat'       => $alamat,
                     'no_telep'     => $nomor,
+                    'status'     => 'belum teraktifasi',
                     'd_created'     => date('Y-m-d H:i:s', time())
                 ];
 
@@ -285,6 +315,26 @@ class admin extends CI_Controller
             }
         } elseif ($user['role_id'] == 1) {
         } else (redirect('auth'));
+    }
+    public function daftarpelanggan()
+    {
+        $data['dashboard'] = '';
+        $data['daftar'] = 'active';
+        $data['validasi'] = '';
+        $data['keluhanactivate'] = '';
+        $user = $this->session->userdata();
+        $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
+
+        $data['tittle'] = "Regristation";
+        if ($user['role_id'] == 2) {
+            $data['pelanggan'] = $this->db->get('pelanggan')->result_array();
+            $this->load->view('template/admin/header');
+            $this->load->view('template/admin/sidebar', $data);
+            $this->load->view('admin/daftarpelanggan', $data);
+            $this->load->view('template/admin/footer');
+        } else {
+            redirect('admin/auth');
+        }
     }
     public function tabel()
     {
