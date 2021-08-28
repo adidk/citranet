@@ -7,6 +7,7 @@ class Welcome extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->helper('text');
 	}
 
 	public function index()
@@ -20,7 +21,10 @@ class Welcome extends CI_Controller
 		$data['coverage'] = "";
 		$data['support'] = "";
 		$data['hubungi'] = "";
-		$data['ulasan'] = $this->db->get('ulasan');
+		$data['ulasan'] = $this->db->get('ulasan', 4, 2);
+		$data['berita'] = $this->db->get('berita', 5, 2)->result_array();
+		$data['popular'] = $this->db->get_where('berita', ['id' => 17])->row_array();
+		$data['about'] = $this->db->get_where('berita', ['judul' => 'ABOUT CITRANET'])->row_array();
 		$this->load->view('template/umum/header', $data);
 		$this->load->view('index', $data);
 		$this->load->view('template/umum/footer');
@@ -203,7 +207,7 @@ class Welcome extends CI_Controller
 	}
 
 
-	public function pop()
+	public function pop($id)
 	{
 		$data['integrated'] = "";
 		$data['index1'] = "active";
@@ -220,6 +224,7 @@ class Welcome extends CI_Controller
 		$data['gambar3'] = "assets/img/soho/soholite2.png";
 		$data['gambar4'] = "assets/img/soho/soholite3.png";
 		$data['gambar5'] = "assets/img/soho/soholite4.png";
+		$data['berita'] = $this->db->get_where('berita', ['id' => $id])->row_array();
 		$this->load->view('template/umum/header', $data);
 		$this->load->view('produk/pop', $data);
 		$this->load->view('template/umum/footer');
@@ -407,25 +412,6 @@ class Welcome extends CI_Controller
 				} else {
 					echo "Gambar tidak masuk";
 				}
-
-
-				// $data = [
-				// 'nama'          => htmlspecialchars($nama),
-				// 'email'         => htmlspecialchars($email),
-				// 'norekening'       => $norekening,
-				// 'idcustomer'     => $idcustomer,
-				// 'annorekening'     => $annorekening,
-				// 'nominal'     => $nominal,
-				// 'norekening'     => $norekening,
-				// 'layanan'     => $layanan,
-				// 'bank'     => $bank,
-				// ];
-				// 	$this->db->insert('pembayaran', $data);
-
-				// 	$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-				// Terima Kasih Respons Anda Sudah terkirim  </div>');
-
-				// redirect('welcome/konfirmasi');
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 				Id Customer dan Email belum ditemukkan</div>');
@@ -524,10 +510,6 @@ class Welcome extends CI_Controller
 		$data['hubungi'] = "active";
 
 		$this->form_validation->set_rules('name', 'name', 'required|trim');
-		// $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email]');
-		// $this->form_validation->set_rules('nomor', 'Nomor Telepon', 'required|trim');
-		// $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
-		// $this->form_validation->set_rules('keluhan', 'Keluhan', 'required|trim|');
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('template/umum/header', $data);
@@ -551,6 +533,7 @@ class Welcome extends CI_Controller
 				'kontak'     => $kontak,
 				'alamat'     => $alamat,
 				'layanan'     => $layanan,
+				'status'     => 'menunggu',
 				'd_created 	'     =>  date('Y-m-d H:i:s', time())
 			];
 

@@ -23,10 +23,10 @@
                 <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
                     <div class="carousel-container">
                         <div class="container">
+
                         </div>
                     </div>
                 </div>
-
                 <!-- Slide 3 -->
                 <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)">
                     <div class="carousel-container">
@@ -34,17 +34,13 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
             </a>
-
             <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
                 <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
             </a>
-
         </div>
     </section>
     <!-- ======= Clients Section ======= -->
@@ -58,7 +54,6 @@
                             <div class="col-lg-2">
                                 <img src="<?= base_url() ?>assets/img/produk/sho.png" class="img-fluid" alt="">
                             </div>
-
                             <div class="col-lg-2  ">
                                 <img src="<?= base_url() ?>assets/img/produk/fast.png" class="img-fluid" alt="">
                             </div>
@@ -69,10 +64,7 @@
                             <div class="col-lg-2 ">
                                 <img src="<?= base_url() ?>assets/img/produk/soholite.png" class="img-fluid" alt="">
                             </div>
-
-
                         </div>
-
                         <div class="row align-items-center justify-content-center">
                             <div class="col-lg-2  ">
                                 <img src="<?= base_url() ?>assets/img/produk/infinite.png" class="img-fluid" alt="">
@@ -80,33 +72,25 @@
                             <div class="col-lg-2  ">
                                 <img src="<?= base_url() ?>assets/img/produk/infinitelite.png" class="img-fluid" alt="">
                             </div>
-
                             <div class="col-lg-2  ">
                                 <img src="<?= base_url() ?>assets/img/produk/infinitehome.png" class="img-fluid" alt="">
                             </div>
-
                             <div class="col-lg-2   ">
                                 <img src="<?= base_url() ?>assets/img/produk/infinitestream.png" class="img-fluid" alt="">
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </section><!-- End Clients Section -->
-
     <!-- ======= Services Section ======= -->
-
     <!-- ======= Portfolio Section ======= -->
     <section id="pricing" class="pricing">
         <div class="container ">
-
             <div class="row ">
-
                 <div class="col-lg-6 col-md-5 ml-4">
-                    <div class="box featured">
+                    <div class="box featured mb-3">
                         <h3>POPULAR POST</h3>
                         <div class="col-lg">
                             <div class="thumbnail material-hover"><a href="<?= base_url('welcome/pop') ?>" class="link-inverse" width="" height="350">
@@ -114,45 +98,42 @@
                                 <img src="https://www.citra.net.id/cni-content/uploads/modules/posts/thumbs/20210802104451.png" style="text-align:center;" width="100%" height="auto" class="img-responsive">
                             </div>
                             <a href="<?= base_url('welcome/pop') ?>">
-                                <p class="text-align-center mt-3">TERIMA KASIH SOBAT INTERNET!</p>
+                                <? $popular['judul'] ?>
                             </a>
-                            <div class="entry-content" style="text-align: justify;"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt fugit eveniet, quia odit explicabo alias reprehenderit. Quas, iusto? Pariatur aut nobis distinctio? Quam veniam maiores et vero totam deserunt itaque!
-                                <br>
-                                <a href="<?= base_url('welcome/pop') ?>" class="link-inverse">
+                            <div class="entry-content" style="text-align: justify;"> <?= htmlspecialchars_decode(character_limiter($popular['isi'], 250)); ?>
+                                <a href="<?= base_url('welcome/pop/17') ?>" class="link-inverse">
                                     <i class="">Berita selengkapnya...</i>
                                 </a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="box featured">
-                        <h3>ABOUT CITRANET</h3>
+                    <div class="box featured mb-3">
+                        <h3><?= $about['judul'] ?></h3>
                         <div class="row">
-                            <div class="col-lg-7">
-                                <p style="text-align: justify;">Kami adalah Perusahaan Internet Service Provider yang berbasis di Yogyakarta dengan pengalaman selama lebih dari belasan tahun.
-                                    Pelayanan terbaik dari sisi kualitas, memuaskan dengan harga yang terjangkau merupakan tujuan utama kami. Diwakili oleh tenaga yang ahli di bidangnya, kami mendedikasikan diri untuk memastikan kualitas terbaik yang kami berikan kepada pelanggan.
-                                    Pengalaman kami dalam teknologi informasi mendorong kami terus aktif dalam berinovasi meningkatkan kecepatan akses sesuai dengan tuntutan zaman.</p>
+                            <div class="col-lg-7" style="text-align: justify;">
+                                <?= htmlspecialchars_decode($about['isi']); ?>
                             </div>
                             <div class="col-lg-5"> <img src="assets/img/about.jpg" width="100%">
 
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-lg-5 ml-3 col-md-6">
-                    <div class="box featured">
+                    <div class="box featured mb-3">
                         <h3>BERITA LAINNYA</h3>
                         <ul>
-                            <li><a href="" style="color: #414141;"> INFINITE STREAM: PAKET BARU INTERNET ...</a></li>
-                            <li><a href="" style="color: #414141;"> LOMBA DESAIN TUMBLER CITRANET</a></li>
-                            <li><a href="" style="color: #414141;"> CITRANET DUKUNG AKSES INTERNET UNTUK ...</a></li>
-                            <li><a href="" style="color: #414141;"> KAMI SUDAH DI VAKSIN </a></li>
-                            <li><a href="" style="color: #414141;"> BERKOLABORASI DENGAN PEMKOT JOGJA, CITRANET ...</a></li>
+                            <?php
+                            foreach ($berita as $a) {
+                            ?>
+                                <li style="text-align: justify;">
+                                    <p><a href="<?= base_url('welcome/pop/') . $a['id'] ?>"><?= character_limiter($a['judul'], 40); ?></a></p>
+                                </li>
+                            <?php
+                            } ?>
                         </ul>
-
                     </div>
-                    <div class="box featured">
+                    <div class="box featured mb-3">
                         <h3>LOKASI HOTSPOT CITRANET</h3>
                         <section id="clients" class="clients ">
                             <div class="">
@@ -162,16 +143,24 @@
                                             <div class="col-lg-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-
                                             <div class="col-lg-4  ">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
                                             <div class="col-lg-4 ">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-
                                         </div>
-
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-lg-4  ">
+                                                <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
+                                            </div>
+                                            <div class="col-lg-4  ">
+                                                <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
+                                            </div>
+                                            <div class="col-lg-4  ">
+                                                <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div>
                                         <div class="row align-items-center justify-content-center">
                                             <div class="col-lg-4  ">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
@@ -183,27 +172,8 @@
                                             <div class="col-lg-4  ">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-
-
                                         </div>
-                                        <div class="row align-items-center justify-content-center">
-                                            <div class="col-lg-4  ">
-                                                <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
-                                            </div>
-                                            <div class="col-lg-4  ">
-                                                <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
-                                            </div>
-
-                                            <div class="col-lg-4  ">
-                                                <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
-                                            </div>
-
-
-                                        </div>
-
                                     </div>
-
-
                                 </div>
                             </div>
                         </section><!-- End Clients Section -->
@@ -220,53 +190,6 @@
                 <p>APA KATA MEREKA TENTANG CITRANET</p>
             </div>
             <div>
-
-                <div class="row">
-
-                    <?php foreach ($ulasan->result_array() as $a) { ?>
-                        <div class="col-lg-5 m-3">
-                            <div class="member d-flex align-items-start">
-
-                                <div class="pic"><img src="<?= base_url('assets/img/ulasan/') . $a['gambar'] ?>" class="img-fluid" alt=""></div>
-                                <div class="member-info">
-                                    <h4><?= $a['nama']; ?></h4>
-                                    <span><?= $a['email']; ?></span>
-                                    <p><?= $a['ulasan'] ?></p>
-                                    <div class="social">
-                                        <?php if ($a['rating'] == 1) : ?>
-                                            <a href=""><i class="ri-facebook-fill"></i></a>
-
-                                        <?php elseif ($a['rating'] == 2) : ?>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                        <?php elseif ($a['rating'] == 3) : ?>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                        <?php elseif ($a['rating'] ==4) : ?>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                        <?php elseif ($a['rating'] ==5) : ?>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                        <?php endif ?>
-
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
-
-
-
-
-                </div>
                 <section id="pricing" class="pricing">
                     <div class="container" data-aos="fade-up">
 
@@ -282,6 +205,53 @@
 
 
                 </section>
+
+                <div class="row">
+
+                    <?php foreach ($ulasan->result_array() as $a) { ?>
+                        <div class="col-lg-5 m-3">
+                            <div class="member d-flex align-items-start">
+
+                                <div class="pic"><img src="<?= base_url('assets/img/ulasan/') . $a['gambar'] ?>" class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <h4><?= $a['nama']; ?></h4>
+                                    <span><?= $a['email']; ?></span>
+                                    <p><?= $a['ulasan'] ?></p>
+                                    <div class="social">
+                                        <?php if ($a['rating'] == 1) : ?>
+                                            <a href=""><i class="ri-facebook-fill"></i></a>
+                                        <?php elseif ($a['rating'] == 2) : ?>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                        <?php elseif ($a['rating'] == 3) : ?>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                        <?php elseif ($a['rating'] == 4) : ?>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                        <?php elseif ($a['rating'] == 5) : ?>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                            <a href=""> <i class="ri-star-fill"></i></a>
+                                        <?php endif ?>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+
+
+
+
+                </div>
+
                 <div>
                 </div>
             </div>

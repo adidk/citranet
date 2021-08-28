@@ -67,12 +67,16 @@
                     </div>
                 </div>
 
-                <div class="col-lg">
-                    <div class="col-sm-10">
-                        <a href="<?= base_url('admin/tolak/') . $bayar['idcustomer'] ?>" class="btn btn-danger mb-3">Tolak</a>
-                        <a href="<?= base_url('admin/terima/') . $bayar['idcustomer'] ?>" class="btn btn-danger mb-3">Terima</a>
+                <?php if ($bayar['status'] == null) : ?>
+
+                    <div class="col-lg">
+                        <div class="col-sm-10">
+                            <a href="<?= base_url('admin/terima/') . $bayar['idcustomer'] ?>" class="btn btn-success mb-3">Terima</a>
+                            <a href="<?= base_url('admin/tolak/') . $bayar['idcustomer'] ?>" class="btn btn-danger mb-3">Tolak</a>
+                        </div>
                     </div>
-                </div>
+                <?php endif ?>
+
 
             </div>
             </form>

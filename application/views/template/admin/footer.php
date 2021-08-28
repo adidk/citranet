@@ -48,6 +48,7 @@
     <script src="<?= base_url('') ?>assets/adminlte/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('') ?>assets/adminlte/dist/js/demo.js"></script>
+    <script src="<?= base_url('') ?>assets/adminlte/plugins/summernote/summernote-bs4.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js
@@ -60,5 +61,11 @@
         });
     </script>
     </body>
+    <script>
+        $(function() {
+            // Summernote
+            $('.textarea').summernote()
+        })
+    </script>
 
     </html>

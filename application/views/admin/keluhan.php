@@ -15,11 +15,10 @@
                                 <th>NAMA</th>
                                 <th>EMAIL</th>
                                 <th>ALAMAT</th>
-                                <th>NOMOR TELEPON</th>
+                                <th>WAKTU DAFTAR</th>
                                 <th>REQUEST KONTAK</th>
-                                <th>LAYANAN </th>
-                                <th>Status </th>
-                                <th>KELUHAN</th>
+                                <th>STATUS</th>
+                                <th>AKSI </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,8 +30,7 @@
                                     <td><?= $a['name']; ?></td>
                                     <td><?= $a['email']; ?></td>
                                     <td><?= $a['alamat']; ?></td>
-                                    <td><?= $a['nomor']; ?></td>
-                                    <td><?= $a['kontak']; ?></td>
+                                    <td><?= $a['d_created']; ?></td>
                                     <td><?= $a['kontak']; ?></td>
                                     <td><?= $a['status']; ?></td>
                                     <td><a href="<?= base_url('admin/detailkeluhan/') . $a['id'] ?>" class="btn btn-warning">Detail</a></td>

@@ -17,6 +17,7 @@ class admin extends CI_Controller
         $data['daftar'] = '';
         $data['validasi'] = '';
         $data['keluhanactivate'] = '';
+        $data['berita'] = '';
         $data['bayar'] = $this->db->get('pembayaran')->result_array();
         $user = $this->session->userdata();
         $data['user'] = $this->session->userdata();
@@ -25,9 +26,23 @@ class admin extends CI_Controller
             $this->load->view('template/admin/sidebar', $data, $user);
             $this->load->view('admin/akun', $data, $user);
             $this->load->view('template/admin/footer');
-        } elseif ($user['role_id'] == 1) {
+        } else (redirect('auth'));
+    }
+    public function test()
+    {
+        $data['tittle'] = 'Dashboard';
+        $data['dashboard'] = 'active';
+        $data['daftar'] = '';
+        $data['validasi'] = '';
+        $data['keluhanactivate'] = '';
+        $data['berita'] = '';
+        $data['bayar'] = $this->db->get('pembayaran')->result_array();
+        $user = $this->session->userdata();
+        $data['user'] = $this->session->userdata();
+        if ($user['role_id'] == 2) {
             $this->load->view('template/admin/header');
-            $this->load->view('template/admin/sidebar');
+            $this->load->view('template/admin/sidebar', $data, $user);
+            $this->load->view('admin/tabel', $data, $user);
             $this->load->view('template/admin/footer');
         } else (redirect('auth'));
     }
@@ -37,12 +52,13 @@ class admin extends CI_Controller
         $data['daftar'] = '';
         $data['validasi'] = 'active';
         $data['keluhanactivate'] = '';
+        $data['berita'] = '';
         $data['bayar'] = $this->db->get('pembayaran')->result_array();
         $user = $this->session->userdata();
         $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
 
-
         if ($user['role_id'] == 2) {
+
 
             $this->load->view('template/admin/header');
             $this->load->view('template/admin/sidebar', $data);
@@ -50,12 +66,6 @@ class admin extends CI_Controller
             $this->load->view('template/admin/footer');
             # code...
 
-
-        } elseif ($user['role_id'] == 1) {
-            $this->load->view('template/admin/header');
-            $this->load->view('template/admin/sidebar');
-            $this->load->view('admin/daftar');
-            $this->load->view('template/admin/footer');
         } else (redirect('auth'));
     }
     public function akun()
@@ -64,6 +74,7 @@ class admin extends CI_Controller
         $data['daftar'] = '';
         $data['validasi'] = '';
         $data['keluhanactivate'] = '';
+        $data['berita'] = '';
         $data['tittle'] = 'Pengaturan Akun';
         $user = $this->session->userdata();
         $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
@@ -103,16 +114,15 @@ class admin extends CI_Controller
                 Berhasil Diubah</div>');
                 redirect('admin/akun');
             }
-        } elseif ($user['role_id'] == 1) {
-            $this->load->view('template/admin/header');
-            $this->load->view('template/admin/sidebar');
-            $this->load->view('admin/daftar');
-            $this->load->view('template/admin/footer');
         } else (redirect('auth'));
     }
     public function unggah()
     {
+
         $user = $this->session->userdata();
+        $this->form_validation->set_rules('password', 'password', 'required|min_length[5]', [
+            'min_length' =>  'Password minimal 5 karakter'
+        ]);
         if ($user['role_id'] == 2) {
             $cus = $this->db->get_where('user', ['id' => $user['id']])->row_array();
 
@@ -134,6 +144,7 @@ class admin extends CI_Controller
                         );
                         $this->db->where($where);
                         $this->db->update('user', $data);
+                        // $this->db->insert('berita',$data);
                         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 					Berhasil Diubah </div>');
                         redirect('admin/akun');
@@ -149,12 +160,160 @@ class admin extends CI_Controller
             }
         } else (redirect('auth'));
     }
+    public function inputberita()
+    {
+        $data['dashboard'] = '';
+        $data['daftar'] = '';
+        $data['validasi'] = '';
+        $data['keluhanactivate'] = '';
+        $data['berita'] = 'active';
+        $user = $this->session->userdata();
+        $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
+        $this->form_validation->set_rules('judul', 'judul', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/admin/header', $data);
+            $this->load->view('template/admin/sidebar', $data);
+            $this->load->view('admin/inputberita');
+            $this->load->view('template/admin/footer');
+        } else {
+            $judul  = $this->input->post('judul');
+            $isi  = $this->input->post('isi');
+            $foto  = $this->input->post('foto');
+            $config['upload_path'] = './assets/img/berita/';
+            $config['allowed_types'] = 'jpg|png|jpeg|gif';
+            $config['file_name'] = $_FILES['foto']['name'];
+
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+            if (!empty($_FILES['foto']['name'])) {
+                if ($this->upload->do_upload('foto')) {
+                    $foto = $this->upload->data();
+                    $data = array(
+
+                        'judul'          => htmlspecialchars($judul),
+                        'isi'          => htmlspecialchars($isi, true),
+                        'by'         => $user['name'],
+                        'gambar' => $foto['file_name'],
+                        'dcreated 	'     =>  date('Y-m-d H:i:s', time())
+
+                    );
+
+                    $this->db->insert('berita', $data);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+					Berita Berhasil Ditambahkan</div>');
+
+                    redirect('admin/berita');
+                } else {
+                    $error = array('error' => $this->upload->display_errors());
+                    var_dump($error);
+                }
+            } else {
+                echo "Gambar tidak masuk";
+            }
+        }
+    }
+    public function berita()
+    {
+        $user = $this->session->userdata();
+        $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
+        $data['dashboard'] = '';
+        $data['daftar'] = '';
+        $data['validasi'] = '';
+        $data['keluhanactivate'] = '';
+        $data['berita'] = 'active';
+        if ($user['role_id'] == 2) {
+
+
+            $data['tittle'] = 'Pengaturan Akun';
+            $data['databerita'] = $this->db->get('berita')->result_array();
+            $this->load->view('template/admin/header', $data);
+            $this->load->view('template/admin/sidebar', $data);
+            $this->load->view('admin/berita');
+            $this->load->view('template/admin/footer');
+        } else {
+            redirect('admin');
+        }
+    }
+    public function detailberita($berita)
+    {
+
+        $user = $this->session->userdata();
+        $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
+        $data['detailberita'] = $this->db->get_where('berita', ['id' => $berita])->row_array();
+        if ($user['role_id'] == 2) {
+            $data['dashboard'] = '';
+            $data['daftar'] = '';
+            $data['validasi'] = '';
+            $data['keluhanactivate'] = '';
+            $data['berita'] = 'active';
+
+            $data['tittle'] = 'Pengaturan Akun';
+            $data['databerita'] = $this->db->get('berita')->result_array();
+            $this->load->view('template/admin/header', $data);
+            $this->load->view('template/admin/sidebar', $data);
+            $this->load->view('admin/detailberita');
+            $this->load->view('template/admin/footer');
+        } else {
+            redirect('admin');
+        }
+    }
+    public function updateberita($id)
+    {
+        $user = $this->session->userdata();
+        $judul  = $this->input->post('judul');
+        $isi  = $this->input->post('isi');
+        $foto  = $this->input->post('foto');
+
+        $config['upload_path'] = './assets/img/berita/';
+        $config['allowed_types'] = 'jpg|png|jpeg|gif';
+        $config['file_name'] = $_FILES['foto']['name'];
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if (!empty($_FILES['foto']['name'])) {
+            if ($this->upload->do_upload('foto')) {
+                $foto = $this->upload->data();
+                $data = array(
+
+                    'judul'          => htmlspecialchars($judul),
+                    'isi'          => htmlspecialchars($isi),
+                    'modified'         => $user['name'],
+                    'gambar' => $foto['file_name'],
+                    'dcreated 	'     =>  date('Y-m-d H:i:s', time())
+
+                );
+
+                $this->db->where('id', $id);
+                $this->db->update('berita', $data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                Update berhasil terkirim  </div>');
+
+                redirect('admin/berita');
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                var_dump($error);
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                Gagal upload gambar  </div>' . $id);
+            redirect('admin/updateberita');
+        }
+    }
+    public function hapusberita($berita)
+    {
+        $this->db->delete('berita', array('id' => $berita));
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+        Data Berhasil Terhapus </div>');
+        redirect('admin/berita');
+    }
     public function keluhan()
     {
         $data['dashboard'] = '';
         $data['daftar'] = '';
         $data['validasi'] = '';
         $data['keluhanactivate'] = 'active';
+        $data['berita'] = '';
+
         $data['keluhan'] = $this->db->get('keluhan')->result_array();
         $user = $this->session->userdata();
         $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
@@ -172,6 +331,8 @@ class admin extends CI_Controller
         $data['daftar'] = '';
         $data['validasi'] = '';
         $data['keluhanactivate'] = 'active';
+        $data['berita'] = '';
+
         $user = $this->session->userdata();
         if ($user['role_id'] == 2) {
             $data['bayar'] = $this->db->get_where('keluhan', ['id' => $a])->row_array();
@@ -206,6 +367,8 @@ class admin extends CI_Controller
         $data['daftar'] = '';
         $data['validasi'] = 'active';
         $data['keluhanactivate'] = '';
+        $data['berita'] = '';
+
         $user = $this->session->userdata();
         $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
         if ($user['role_id'] == 2) {
@@ -229,7 +392,7 @@ class admin extends CI_Controller
                 'masaaktif '     => date('Y-m-d H:i:s',  strtotime("+30 days"))
             ];
             $this->db->where('idcustomer', $bayar);
-            $this->db->update('pembayaran', array('status'    => 'terima'));
+            $this->db->update('pembayaran', array('status'    => 'aktif'));
 
             $this->db->where('id', $bayar);
             $this->db->update('pelanggan', $data);
@@ -240,7 +403,7 @@ class admin extends CI_Controller
     {
         $user = $this->session->userdata();
         if ($user['role_id'] == 2) {
-            
+
             $data = [
 
                 'status'    => 'aktif',
@@ -272,6 +435,8 @@ class admin extends CI_Controller
         $data['daftar'] = 'active';
         $data['validasi'] = '';
         $data['keluhanactivate'] = '';
+        $data['berita'] = '';
+
         $user = $this->session->userdata();
         $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
         if ($user['role_id'] == 2) {
@@ -316,12 +481,15 @@ class admin extends CI_Controller
         } elseif ($user['role_id'] == 1) {
         } else (redirect('auth'));
     }
+
     public function daftarpelanggan()
     {
         $data['dashboard'] = '';
         $data['daftar'] = 'active';
         $data['validasi'] = '';
         $data['keluhanactivate'] = '';
+        $data['berita'] = '';
+
         $user = $this->session->userdata();
         $data['user'] = $this->db->get_where('user', ['id' => $user['id']])->row_array();
 
@@ -336,14 +504,7 @@ class admin extends CI_Controller
             redirect('admin/auth');
         }
     }
-    public function tabel()
-    {
 
-        $this->load->view('template/admin/header');
-        // $this->load->view('template/admin/sidebar');
-        $this->load->view('admin/tabel');
-        $this->load->view('template/admin/footer');
-    }
     public function inputproduk()
     {
         $user = $this->session->userdata();
@@ -367,7 +528,7 @@ class admin extends CI_Controller
                     $config['upload_path']  = '.assets/img/';
                     $config['allowed_types']  = 'jppg|png|gif';
                     $this->load->library('upload', $config);
-                    if (!$this->upload->do_upload('gambar$gambar')) {
+                    if (!$this->upload->do_upload('$gambar')) {
                         echo "gagal";
                     } else {
                         $gambar = $this->upload->data('file_name');
