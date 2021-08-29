@@ -55,6 +55,12 @@
 <!--  -->
 <!-- Template Main JS File -->
 
+<script>
+    $('#userreview').carousel({
+        interval: 100
+    })
+</script>
+
 </body>
 
 </html>

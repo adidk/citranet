@@ -21,7 +21,6 @@ class Welcome extends CI_Controller
 		$data['coverage'] = "";
 		$data['support'] = "";
 		$data['hubungi'] = "";
-		$data['ulasan'] = $this->db->get('ulasan', 4, 2);
 		$data['berita'] = $this->db->get('berita', 5, 2)->result_array();
 		$data['popular'] = $this->db->get_where('berita', ['id' => 17])->row_array();
 		$data['about'] = $this->db->get_where('berita', ['judul' => 'ABOUT CITRANET'])->row_array();

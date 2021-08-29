@@ -185,76 +185,101 @@
     </section><!-- End Pricing Section -->
     <section id="team" class="team section-bg">
         <div class="container">
-
-            <div class="section-title">
+            <div class="section-title text-center">
                 <p>APA KATA MEREKA TENTANG CITRANET</p>
             </div>
-            <div>
-                <section id="pricing" class="pricing">
-                    <div class="container" data-aos="fade-up">
-
-                        <div class="row">
-
-                            <div class="" style="text-align: center;">
-                                <p><b>
-                                        Tulis Ulasan Anda</b>
-                                </p>
-                                <a href="<?= base_url('welcome/ulasan'); ?>" class="btn-buy">Tulis</a>
-                            </div>
+            <section id="pricing" class="pricing">
+                <div class="container" data-aos="fade-up">
+                    <div class="row">
+                        <div class="" style="text-align: center;">
+                            <p><b>Tulis Ulasan Anda</b></p>
+                            <a href="<?= base_url('welcome/ulasan'); ?>" class="btn-buy">Tulis</a>
                         </div>
+                    </div>
+                </div>
+            </section>
 
+            <div class="row">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <?php
+                        $count_ulasan = $this->db->count_all_results('ulasan');
+                        $jumlah_slide = ceil($count_ulasan / 2); ?>
+                        <?php for ($i = 1; $i <= $jumlah_slide; $i++) { ?>
+                            <?php
+                            $order = $i * 2;
+                            $seleksi = $order - 2;
+                            $ulasan = $this->db->get('ulasan', 2, $seleksi);
+                            ?>
+                            <?php
+                            if ($order - 1 == 1) {
+                                echo '<div class="carousel-item active pd-10">';
+                            } else {
+                                echo '<div class="carousel-item pd-10">';
+                            }
+                            ?>
 
-                </section>
-
-                <div class="row">
-
-                    <?php foreach ($ulasan->result_array() as $a) { ?>
-                        <div class="col-lg-5 m-3">
-                            <div class="member d-flex align-items-start">
-
-                                <div class="pic"><img src="<?= base_url('assets/img/ulasan/') . $a['gambar'] ?>" class="img-fluid" alt=""></div>
-                                <div class="member-info">
-                                    <h4><?= $a['nama']; ?></h4>
-                                    <span><?= $a['email']; ?></span>
-                                    <p><?= $a['ulasan'] ?></p>
-                                    <div class="social">
-                                        <?php if ($a['rating'] == 1) : ?>
-                                            <a href=""><i class="ri-facebook-fill"></i></a>
-                                        <?php elseif ($a['rating'] == 2) : ?>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                        <?php elseif ($a['rating'] == 3) : ?>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                        <?php elseif ($a['rating'] == 4) : ?>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                        <?php elseif ($a['rating'] == 5) : ?>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                            <a href=""> <i class="ri-star-fill"></i></a>
-                                        <?php endif ?>
-
-
+                            <div class="row">
+                                <?php foreach ($ulasan->result_array() as $ul) : ?>
+                                    <div class="col-md-6 mt-3 mb-3">
+                                        <div class="card border-0 shadow">
+                                            <div class="card-body border-0">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <img src="<?= base_url('assets/img/ulasan/') . $ul['gambar'] ?>" alt="" class="img-fluid" style="height:100px;">
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="member-info">
+                                                            <h4><?= $ul['nama']; ?></h4>
+                                                            <span><?= $ul['email']; ?></span>
+                                                            <p><?= $ul['ulasan'] ?></p>
+                                                            <div class="social">
+                                                                <?php if ($ul['rating'] == 1) : ?>
+                                                                    <i class="ri-facebook-fill"></i>
+                                                                <?php elseif ($ul['rating'] == 2) : ?>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                <?php elseif ($ul['rating'] == 3) : ?>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                <?php elseif ($ul['rating'] == 4) : ?>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                <?php elseif ($ul['rating'] == 5) : ?>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                    <i class="ri-star-fill"></i>
+                                                                <?php endif ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
-                        </div>
-                    <?php } ?>
-
-
-
-
+                    </div>
+                <?php }; ?>
                 </div>
-
-                <div>
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
+            <!-- end carousel -->
+
+        </div>
+        </div>
     </section><!-- End Team Section -->
 
 </main>

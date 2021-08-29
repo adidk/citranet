@@ -26,6 +26,7 @@
 
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>assets/sailor/css/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/custom.css" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Sailor - v4.3.0
