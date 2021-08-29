@@ -46,36 +46,36 @@
     <!-- ======= Clients Section ======= -->
     <section id="clients" class="clients ">
         <div class="">
-            <div class="mt-3 ">
+            <div class="mt-3">
                 <div class=" ">
                     <h4 class="label-product text-center">PRODUK</h4>
                     <div class=" align-items-center justify-content-center" style="text-align: center;">
                         <div class="row align-items-center justify-content-center">
-                            <div class="col-lg-2">
+                            <div class="col-6 col-md-2">
                                 <img src="<?= base_url() ?>assets/img/produk/sho.png" class="img-fluid" alt="">
                             </div>
-                            <div class="col-lg-2  ">
+                            <div class="col-6 col-md-2">
                                 <img src="<?= base_url() ?>assets/img/produk/fast.png" class="img-fluid" alt="">
                             </div>
-                            <div class="col-lg-2 ">
+                            <div class="col-6 col-md-2">
                                 <img src="<?= base_url() ?>assets/img/produk/dia.png" class="img-fluid" alt="">
                             </div>
 
-                            <div class="col-lg-2 ">
+                            <div class="col-6 col-md-2">
                                 <img src="<?= base_url() ?>assets/img/produk/soholite.png" class="img-fluid" alt="">
                             </div>
                         </div>
                         <div class="row align-items-center justify-content-center">
-                            <div class="col-lg-2  ">
+                            <div class="col-6 col-md-2">
                                 <img src="<?= base_url() ?>assets/img/produk/infinite.png" class="img-fluid" alt="">
                             </div>
-                            <div class="col-lg-2  ">
+                            <div class="col-6 col-md-2">
                                 <img src="<?= base_url() ?>assets/img/produk/infinitelite.png" class="img-fluid" alt="">
                             </div>
-                            <div class="col-lg-2  ">
+                            <div class="col-6 col-md-2">
                                 <img src="<?= base_url() ?>assets/img/produk/infinitehome.png" class="img-fluid" alt="">
                             </div>
-                            <div class="col-lg-2   ">
+                            <div class="col-6 col-md-2">
                                 <img src="<?= base_url() ?>assets/img/produk/infinitestream.png" class="img-fluid" alt="">
                             </div>
                         </div>
@@ -89,7 +89,7 @@
     <section id="pricing" class="pricing">
         <div class="container ">
             <div class="row ">
-                <div class="col-lg-6 col-md-5 ml-4">
+                <div class="col-lg-6 col-md-5 ml-2 mr-2">
                     <div class="box featured mb-3">
                         <h3>POPULAR POST</h3>
                         <div class="col-lg">
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 ml-3 col-md-6">
+                <div class="col-lg-5 ml-2 mr-2 col-md-6">
                     <div class="box featured mb-3">
                         <h3>BERITA LAINNYA</h3>
                         <ul>
@@ -140,36 +140,31 @@
                                 <div class=" ">
                                     <div class=" align-items-center justify-content-center" style="text-align: center;">
                                         <div class="row align-items-center justify-content-center">
-                                            <div class="col-lg-4">
+                                            <div class="col-6 col-md-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-                                            <div class="col-lg-4  ">
+                                            <div class="col-6 col-md-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-                                            <div class="col-lg-4 ">
+                                            <div class="col-6 col-md-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-                                        </div>
-                                        <div class="row align-items-center justify-content-center">
-                                            <div class="col-lg-4  ">
+                                            <div class="col-6 col-md-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-                                            <div class="col-lg-4  ">
+                                            <div class="col-6 col-md-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-                                            <div class="col-lg-4  ">
+                                            <div class="col-6 col-md-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-                                        </div>
-                                        <div class="row align-items-center justify-content-center">
-                                            <div class="col-lg-4  ">
+                                            <div class="col-6 col-md-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-                                            <div class="col-lg-4  ">
+                                            <div class="col-6 col-md-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
-
-                                            <div class="col-lg-4  ">
+                                            <div class="col-6 col-md-4">
                                                 <img src="assets/img/20150605032338.png" class="img-fluid" alt="">
                                             </div>
                                         </div>
@@ -221,7 +216,7 @@
 
                             <div class="row">
                                 <?php foreach ($ulasan->result_array() as $ul) : ?>
-                                    <div class="col-md-6 mt-3 mb-3">
+                                    <div class="col-md-6 col-sm-12 mt-3 mb-3">
                                         <div class="card border-0 shadow">
                                             <div class="card-body border-0">
                                                 <div class="row">
